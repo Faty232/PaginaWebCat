@@ -1,0 +1,26 @@
+{
+  "name": "paginawebcat",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "vue": "^3.2.40",
+    "vue-router": "^4.1.5",
+    "vuetify": "^3.0.0-beta.0"
+  },
+  "devDependencies": {
+    "@mdi/font": "^7.0.96",
+    "@vitejs/plugin-vue": "^3.1.0",
+    "deepmerge": "^4.2.2",
+    "sass": "~1.32",
+    "sass-loader": "^13.0.2",
+    "vite": "^3.1.0",
+    "vite-plugin-vue2": "^2.0.2"
+  }
+}
