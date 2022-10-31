@@ -1,16 +1,17 @@
-import * as VueRouter from 'vue-router'
-import empleado from './pages/Empleado/empleado.vue' 
-import crearUsuario from './pages/Empleado/crearUsuario.vue' 
+import Vue from 'vue'
+import Router from 'vue-router'
 
-const routes = [
-    { path: '/', component: empleado },
-    { path: '/empleado', component: empleado },
-    { path:'/empleado/formulario', component: crearUsuario}
-  ]
+Vue.use(Router)
 
-const router = VueRouter.createRouter({
-    history: VueRouter.createWebHistory(),
-    routes
+import Login from './pages/login.vue'
+import Empleados from './pages/empleados.vue'
+
+const router = new Router({
+    mode: 'history',
+    routes: [
+        { path: '/', name: 'login', component: Login },
+        { path: '/empleados', name: 'empleados', component: Empleados }
+    ]
 })
 
-export default router; //Utilizarlo en otro archivo
+export default router
