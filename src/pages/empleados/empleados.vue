@@ -1,19 +1,23 @@
 <template>
     <div class="contenedor">
         <h2 class="v-title">Empleados</h2>
+        <v-row justify="end" :style="{ marginBottom: '20px' }">
+            <v-btn class="mx-2"  color="primary" @click="$router.push({ name: 'crearEmpleado' })">
+                Crear usuario
+            </v-btn>
+        </v-row>
         <v-data-table :headers="headers" :items="empleados">
             <template v-slot:item.direccion="{ item }">
                 {{ `${item.direccion}, ${item.estado}, ${item.cp}`}}
             </template>
             <template  v-slot:item.editar="{ item }">
-                <v-btn
-                    class="mx-2"
-                    fab
-                    dark
-                    x-small
-                    color="primary"
-                >
+                <v-btn class="mx-2" fab dark x-small color="primary">
                     <v-icon>{{ icons.mdiPencil }}</v-icon>
+                </v-btn>
+            </template>
+            <template  v-slot:item.eliminar="{ item }">
+                <v-btn class="mx-2" fab dark x-small color="error" @click="deleteEmpleado(item.id)">
+                    <v-icon>{{ icons.mdiDelete }}</v-icon>
                 </v-btn>
             </template>
         </v-data-table>
@@ -55,6 +59,18 @@
                 axios.get('http://localhost:8888/api/empleado').then( resp => {
                     this.empleados = resp.data
                     console.log(resp)
+                } ).catch( err => {
+                    console.log(err)
+                } )
+            },
+            deleteEmpleado(id){
+                console.log("eliminandi", id)
+                axios({
+                    method: 'delete',
+                    url: `http://localhost:8888/api/empleado/${id}`
+                }).then( resp => {
+                    this.getEmpleados()
+                    alert(resp.data.message)
                 } ).catch( err => {
                     console.log(err)
                 } )
