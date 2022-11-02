@@ -11,7 +11,7 @@
                 {{ `${item.direccion}, ${item.estado}, ${item.cp}`}}
             </template>
             <template  v-slot:item.editar="{ item }">
-                <v-btn class="mx-2" fab dark x-small color="primary">
+                <v-btn class="mx-2" fab dark x-small color="primary"  @click="$router.push({ name: 'editarEmpleado', params: { id: item.id }  })">
                     <v-icon>{{ icons.mdiPencil }}</v-icon>
                 </v-btn>
             </template>
