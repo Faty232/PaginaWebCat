@@ -43,8 +43,17 @@
                     <v-list-item>
                       <v-list-item-title v-text="'Inicio'"></v-list-item-title>
                     </v-list-item>
-                    <v-list-item>
+                    <v-list-item @click="$router.push({ name: 'empleados' })">
                       <v-list-item-title v-text="'Empleados'"></v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="$router.push({ name: 'distribuidores' })">
+                      <v-list-item-title v-text="'Distribuidores'"></v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="$router.push({ name: 'clientes' })">
+                      <v-list-item-title v-text="'Clientes'"></v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="$router.push({ name: 'marcas' })">
+                      <v-list-item-title v-text="'Marcas'"></v-list-item-title>
                     </v-list-item>
                   </v-list>
 
@@ -52,7 +61,7 @@
               </v-navigation-drawer>
             </v-card>
           </v-col>
-          <v-col>
+          <v-col :style="{ paddingLeft: '40px', paddingRight: '40px' }">
             <router-view />
           </v-col>
         </v-row>
