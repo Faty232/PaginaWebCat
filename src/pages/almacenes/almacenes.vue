@@ -1,22 +1,22 @@
 <template>
     <div class="contenedor">
-        <h2 class="v-title">Distribuidores</h2>
+        <h2 class="v-title">Almacenes</h2>
         <v-row justify="end" :style="{ marginBottom: '20px' }">
-            <v-btn class="mx-2"  color="primary" @click="$router.push({ name: 'crearDistribuidor' })">
-                Crear distribuidor
+            <v-btn class="mx-2"  color="primary" @click="$router.push({ name: 'crearAlmacen' })">
+                Crear almacen
             </v-btn>
         </v-row>
-        <v-data-table :headers="headers" :items="distribuidores">
-            <template v-slot:item.direccion="{ item }">
-                {{ `${item.estado}, ${item.municipio}, ${item.cp}`}}
+        <v-data-table :headers="headers" :items="almacenes">
+            <template v-slot:item.ProductoId="{item}">
+                    {{item.Producto ? item.Producto.nombre :""}}
             </template>
             <template  v-slot:item.editar="{ item }">
-                <v-btn class="mx-2" fab dark x-small color="primary"  @click="$router.push({ name: 'editarDistribuidor', params: { id: item.id }  })">
+                <v-btn class="mx-2" fab dark x-small color="primary"  @click="$router.push({ name: 'editarAlmacen', params: { id: item.id }  })">
                     <v-icon>{{ icons.mdiPencil }}</v-icon>
                 </v-btn>
             </template>
             <template  v-slot:item.eliminar="{ item }">
-                <v-btn class="mx-2" fab dark x-small color="error" @click="deleteDistribuidor(item.id)">
+                <v-btn class="mx-2" fab dark x-small color="error" @click="deleteAlmacen(item.id)">
                     <v-icon>{{ icons.mdiDelete }}</v-icon>
                 </v-btn>
             </template>
@@ -30,16 +30,14 @@
         mdiPencil,
         mdiDelete,
     } from '@mdi/js'
+
     export default{
         data(){
             return{
                 headers: [
-                    { text: 'Nombre', value: 'nombre' },
-                    { text: 'Dirección', value: 'direccion' },
-                    { text: 'Email', value: 'email' },
-                    { text: 'Telefono', value: 'telefono' },
-                    { text: 'Fecha Entrega', value: 'fechaEnt' },
-                    { text: 'Fecha Creación', value: 'createdAt' },
+                    { text: 'Existencias', value: 'existencias' },
+                    { text: 'Producto', value: 'ProductoId' },     
+                    { text: 'Id Producto', value: 'ProductoId' },       
                     { text: '', value: 'editar' },
                     { text: '', value: 'eliminar' },
                 ],
@@ -47,27 +45,27 @@
                     mdiPencil,
                     mdiDelete
                 },
-                distribuidores: []
+                almacenes: []
             }
         },
         mounted(){
-            this.getDistribuidores()
+            this.getAlmacenes()
         },
         methods: {
-            getDistribuidores(){
-                axios.get('http://localhost:8888/api/distribuidor').then( resp => {
-                    this.distribuidores = resp.data
+            getAlmacenes(){
+                axios.get('http://localhost:8888/api/almacen').then( resp => {
+                    this.almacenes = resp.data
                     console.log(resp)
                 } ).catch( err => {
                     console.log(err)
                 } )
             },
-            deleteDistribuidor(id){
+            deleteAlmacen(id){
                 axios({
                     method: 'delete',
-                    url: `http://localhost:8888/api/distribuidor/${id}`
+                    url: `http://localhost:8888/api/almacen/${id}`
                 }).then( resp => {
-                    this.getDistribuidores()
+                    this.getAlmacenes()
                     alert(resp.data.message)
                 } ).catch( err => {
                     console.log(err)

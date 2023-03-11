@@ -5,37 +5,25 @@
             <v-container>
                 <v-row>
                     <v-col>
-                        <v-text-field  label="Nombre" v-model="form.nombre" required></v-text-field>
+                        <v-text-field label="Nombre" v-model="form.nombre" required></v-text-field>
                     </v-col>
                     <v-col>
-                        <v-text-field label="Tipo" v-model="form.tipo" required></v-text-field>
-                    </v-col>
-                </v-row>
-
-                <v-row>
-                    <v-col>
-                        <v-text-field label="Direccion" v-model="form.direccion"></v-text-field>
-                    </v-col>
-                    <v-col>
-                        <v-text-field label="Colonia" v-model="form.colonia" required></v-text-field>
+                        <v-text-field label="Telefono" v-model="form.telefono" type="number" required></v-text-field>
                     </v-col>
                 </v-row>
 
                 <v-row>
                     <v-col>
-                        <v-text-field label="CP" type="number" v-model="form.cp"></v-text-field>
+                        <v-text-field label="Tipo" v-model="form.tipo"></v-text-field>
                     </v-col>
                     <v-col>
-                        <v-select :items="estados" v-model="form.estado" label="Estados" required></v-select>
+                        <v-text-field label="Municipio" v-model="form.municipio" required></v-text-field>
                     </v-col>
                 </v-row>
 
                 <v-row>
-                    <v-col>
-                        <v-text-field label="Correo" type="email" v-model="form.email" required></v-text-field>
-                    </v-col>
-                    <v-col>
-                        <v-text-field label="Telefono" type="number" v-model="form.telefono" required></v-text-field>
+                    <v-col cols="6">
+                        <v-text-field label="Correo" v-model="form.email" type = "email" required></v-text-field>
                     </v-col>
                 </v-row>
                 
@@ -53,22 +41,18 @@
     export default {
         data(){
             return{
-                estados: ['Jalisco', 'Michoacan', 'Gerrero', 'Ciudad de mexico'],
                 form: {
                     nombre: '',
-                    tipo: '',
-                    direccion: '',
-                    colonia: '',
-                    cp: '',
-                    estado: '',
-                    email: '',
                     telefono: '',
+                    tipo: '',
+                    municipio: '',
+                    email: ''
                 }
             }
         }, 
         computed: {
             title(){
-                return this.$route.params.id ? 'Editar Cliente' : 'Crear Cliente'
+                return this.$route.params.id ? 'Editar Proveedor' : 'Crear Proveedor'
             },
             btnText(){
                 return this.$route.params.id ? 'Editar' : 'Guardar'
@@ -76,7 +60,7 @@
         },
         created(){
             if(this.$route.params.id)
-                this.getCliente()
+                this.getProveedor()
         },
         methods: {
             submit(){
@@ -88,11 +72,11 @@
             guardar(){
                 axios({
                     method: 'post',
-                    url: 'http://localhost:8888/api/cliente',
+                    url: 'http://localhost:8888/api/proveedor',
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
-                    this.$router.push({ name: 'clientes' })
+                    this.$router.push({ name: 'proveedores' })
                 } ).catch( err => {
                     console.log(err)
                 } )
@@ -100,28 +84,25 @@
             editar(){
                 axios({
                     method: 'put',
-                    url: `http://localhost:8888/api/cliente/${this.$route.params.id}`,
+                    url: `http://localhost:8888/api/proveedor/${this.$route.params.id}`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
-                    this.$router.push({ name: 'clientes' })
+                    this.$router.push({ name: 'proveedores' })
                 } ).catch( err => {
                     console.log(err)
                 } )
             },
-            getCliente(){
+            getProveedor(){
                 axios({
                     method: 'get',
-                    url: `http://localhost:8888/api/cliente/${this.$route.params.id}`
+                    url: `http://localhost:8888/api/proveedor/${this.$route.params.id}`
                 }).then( resp => {
                     this.form.nombre = resp.data.nombre
+                    this.form.telefono = resp.data.telefono
                     this.form.tipo = resp.data.tipo
-                    this.form.direccion = resp.data.direccion
-                    this.form.colonia = resp.data.colonia
-                    this.form.cp = resp.data.cp
-                    this.form.estado = resp.data.estado
+                    this.form.municipio = resp.data.municipio
                     this.form.email = resp.data.email
-                    this.form.telefono= resp.data.telefono
                 } ).catch( err => {
                     console.log(err)
                 } )

@@ -12,6 +12,14 @@ import CrearDistribuidor from './pages/distribuidores/crearEditarDistribuidor.vu
 import Clientes from './pages/clientes/clientes.vue'
 import CrearEditarCliente from './pages/clientes/crearEditarCliente.vue'
 import Marcas from './pages/marcas.vue'
+import TipoPrendas from './pages/tipoPrendas.vue'
+import Categorias from './pages/categorias.vue'
+import Proveedores from './pages/proveedores/proveedores.vue'
+import CrearEditarProveedor from './pages/proveedores/crearEditarProveedor.vue'
+import Productos from './pages/productos/productos.vue'
+import CrearEditarProducto from './pages/productos/crearEditarProducto.vue'
+import Almacenes from './pages/almacenes/almacenes.vue'
+import CrearEditarAlmacen from './pages/almacenes/crearEditarAlmacen.vue'
 
 const router = new Router({
     mode: 'history',
@@ -29,7 +37,23 @@ const router = new Router({
         { path: '/clientes/crear', name: 'crearCliente', component: CrearEditarCliente },
         { path: '/clientes/editar/:id', name: 'editarCliente', component: CrearEditarCliente },
 
-        { path: '/marcas', name: 'marcas', component: Marcas }
+        { path: '/marcas', name: 'marcas', component: Marcas },
+
+        { path: '/tipo-prendas', name: 'tipoPrendas', component: TipoPrendas },
+
+        { path: '/categorias', name: 'categorias', component: Categorias },
+
+        { path: '/proveedores', name: 'proveedores', component: Proveedores },
+        { path: '/proveedores/crear', name: 'crearProveedor', component: CrearEditarProveedor },
+        { path: '/proveedores/editar/:id', name: 'editarProveedor', component: CrearEditarProveedor },
+
+        { path: '/productos', name: 'productos', component: Productos },
+        { path: '/productos/crear', name: 'crearProducto', component: CrearEditarProducto },
+        { path: '/productos/editar/:id', name: 'editarProducto', component: CrearEditarProducto },
+
+        { path: '/almacenes', name: 'almacenes', component: Almacenes },
+        { path: '/almacenes/crear', name: 'crearAlmacen', component: CrearEditarAlmacen },
+        { path: '/almacenes/editar/:id', name: 'editarAlmacen', component: CrearEditarAlmacen }
     ]
 })
 

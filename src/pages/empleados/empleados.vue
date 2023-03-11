@@ -41,6 +41,7 @@
                     { text: 'Dirección', value: 'direccion' },
                     { text: 'Email', value: 'email' },
                     { text: 'Telefono', value: 'telefono' },
+                    { text: 'Fecha Creación', value: 'createdAt' },
                     { text: '', value: 'editar' },
                     { text: '', value: 'eliminar' },
                 ],
@@ -64,7 +65,6 @@
                 } )
             },
             deleteEmpleado(id){
-                console.log("eliminandi", id)
                 axios({
                     method: 'delete',
                     url: `http://localhost:8888/api/empleado/${id}`

@@ -46,14 +46,29 @@
                     <v-list-item @click="$router.push({ name: 'empleados' })">
                       <v-list-item-title v-text="'Empleados'"></v-list-item-title>
                     </v-list-item>
-                    <v-list-item @click="$router.push({ name: 'distribuidores' })">
-                      <v-list-item-title v-text="'Distribuidores'"></v-list-item-title>
-                    </v-list-item>
                     <v-list-item @click="$router.push({ name: 'clientes' })">
                       <v-list-item-title v-text="'Clientes'"></v-list-item-title>
                     </v-list-item>
+                    <v-list-item @click="$router.push({ name: 'distribuidores' })">
+                      <v-list-item-title v-text="'Distribuidores'"></v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="$router.push({ name: 'proveedores' })">
+                      <v-list-item-title v-text="'Proveedores'"></v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="$router.push({ name: 'productos' })">
+                      <v-list-item-title v-text="'Productos'"></v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="$router.push({ name: 'almacenes' })">
+                      <v-list-item-title v-text="'Almacen'"></v-list-item-title>
+                    </v-list-item>
                     <v-list-item @click="$router.push({ name: 'marcas' })">
                       <v-list-item-title v-text="'Marcas'"></v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="$router.push({ name: 'categorias' })">
+                      <v-list-item-title v-text="'Categorias'"></v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="$router.push({ name: 'tipoPrendas' })">
+                      <v-list-item-title v-text="'Tipo de Prendas'"></v-list-item-title>
                     </v-list-item>
                   </v-list>
 

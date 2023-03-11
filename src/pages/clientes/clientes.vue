@@ -40,6 +40,7 @@
                     { text: 'Dirección', value: 'direccion' },            
                     { text: 'Email', value: 'email' },
                     { text: 'Telefono', value: 'telefono' },
+                    { text: 'Fecha Creación', value: 'createdAt' },
                     { text: '', value: 'editar' },
                     { text: '', value: 'eliminar' },
                 ],
