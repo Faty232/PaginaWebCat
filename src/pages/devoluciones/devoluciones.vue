@@ -1,25 +1,25 @@
 <template>
     <div class="contenedor">
-        <h2 class="v-title">Almacenes</h2>
+        <h2 class="v-title">Devoluciones</h2>
         <v-row justify="end" :style="{ marginBottom: '20px' }">
-            <v-btn class="mx-2"  color="primary" @click="$router.push({ name: 'crearAlmacen' })">
-                Crear almacen
+            <v-btn class="mx-2"  color="primary" @click="$router.push({ name: 'crearDevolucion' })">
+                Crear devolución
             </v-btn>
         </v-row>
-        <v-data-table :headers="headers" :items="almacenes">
-            <template v-slot:item.ProductoId="{item}">
-                    {{item.Producto ? item.Producto.id:""}}
+        <v-data-table :headers="headers" :items="devoluciones">
+            <template v-slot:item.PedidoClieId="{item}">
+                    {{item.PedidoClie ? item.PedidoClie.id:""}}
             </template> 
-            <template v-slot:item.ProductoNombre="{item}">
-                    {{item.Producto ? item.Producto.nombre :""}}
-            </template> 
+            <template v-slot:item.precio="{item}">
+                    {{item.PedidoClie ? item.PedidoClie.precio:""}}
+            </template>
             <template  v-slot:item.editar="{ item }">
-                <v-btn class="mx-2" fab dark x-small color="primary"  @click="$router.push({ name: 'editarAlmacen', params: { id: item.id }  })">
+                <v-btn class="mx-2" fab dark x-small color="primary"  @click="$router.push({ name: 'editarDevolucion', params: { id: item.id }  })">
                     <v-icon>{{ icons.mdiPencil }}</v-icon>
                 </v-btn>
             </template>
             <template  v-slot:item.eliminar="{ item }">
-                <v-btn class="mx-2" fab dark x-small color="error" @click="deleteAlmacen(item.id)">
+                <v-btn class="mx-2" fab dark x-small color="error" @click="deleteDevolucion(item.id)">
                     <v-icon>{{ icons.mdiDelete }}</v-icon>
                 </v-btn>
             </template>
@@ -38,9 +38,12 @@
         data(){
             return{
                 headers: [
-                    { text: 'Existencias', value: 'existencias' },
-                    { text: 'Id Producto', value: 'ProductoId' },    
-                    { text: 'Producto', value: 'ProductoNombre' },     
+                    { text: 'Estatus', value: 'estatus' },
+                    { text: 'Motivo', value: 'motivo' },  
+                    { text: 'Cantidad', value: 'cantidad' }, 
+                    { text: 'Precio', value: 'precio' }, 
+                    { text: 'Total', value: 'total' }, 
+                    { text: 'Id Pedido Cliente', value: 'PedidoClieId' },      
                     { text: '', value: 'editar' },
                     { text: '', value: 'eliminar' },
                 ],
@@ -48,27 +51,27 @@
                     mdiPencil,
                     mdiDelete
                 },
-                almacenes: []
+                devoluciones: []
             }
         },
         mounted(){
-            this.getAlmacenes()
+            this.getDevoluciones()
         },
         methods: {
-            getAlmacenes(){
-                axios.get('http://localhost:8888/api/almacen').then( resp => {
-                    this.almacenes = resp.data
+            getDevoluciones(){
+                axios.get('http://localhost:8888/api/devolucion').then( resp => {
+                    this.devoluciones = resp.data
                     console.log(resp)
                 } ).catch( err => {
                     console.log(err)
                 } )
             },
-            deleteAlmacen(id){
+            deleteDevolucion(id){
                 axios({
                     method: 'delete',
-                    url: `http://localhost:8888/api/almacen/${id}`
+                    url: `http://localhost:8888/api/devolucion/${id}`
                 }).then( resp => {
-                    this.getAlmacenes()
+                    this.getDevoluciones()
                     alert(resp.data.message)
                 } ).catch( err => {
                     console.log(err)

@@ -69,7 +69,7 @@
         },
         methods: {
             getProductos(){
-                axios.get('http://localhost:8888/api/producto').then( resp => {
+                axios.get(`${process.env.RUTA_DB}/producto`).then( resp => {
                     this.productos = resp.data
                     console.log(resp)
                 } ).catch( err => {
@@ -79,7 +79,7 @@
             deleteProducto(id){
                 axios({
                     method: 'delete',
-                    url: `http://localhost:8888/api/producto/${id}`
+                    url: `${process.env.RUTA_DB}/producto/${id}`
                 }).then( resp => {
                     this.getProductos()
                     alert(resp.data.message)

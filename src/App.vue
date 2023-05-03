@@ -58,6 +58,15 @@
                     <v-list-item @click="$router.push({ name: 'productos' })">
                       <v-list-item-title v-text="'Productos'"></v-list-item-title>
                     </v-list-item>
+                     <v-list-item @click="$router.push({ name: 'pedidos' })">
+                      <v-list-item-title v-text="'Pedidos Clientes'"></v-list-item-title>
+                    </v-list-item>
+                     <v-list-item @click="$router.push({ name: 'direcciones' })">
+                      <v-list-item-title v-text="'Dirección Entrega'"></v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="$router.push({ name: 'devoluciones' })">
+                      <v-list-item-title v-text="'Devoluciones'"></v-list-item-title>
+                    </v-list-item>
                     <v-list-item @click="$router.push({ name: 'almacenes' })">
                       <v-list-item-title v-text="'Almacen'"></v-list-item-title>
                     </v-list-item>

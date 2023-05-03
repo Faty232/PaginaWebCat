@@ -110,7 +110,7 @@ export default {
         getCategorias(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/categoria'
+                url: `${process.env.RUTA_DB}/categoria`
             }).then( resp => {
                 this.categorias = resp.data
             } ).catch( err => {

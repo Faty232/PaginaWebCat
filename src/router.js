@@ -20,7 +20,13 @@ import Productos from './pages/productos/productos.vue'
 import CrearEditarProducto from './pages/productos/crearEditarProducto.vue'
 import Almacenes from './pages/almacenes/almacenes.vue'
 import CrearEditarAlmacen from './pages/almacenes/crearEditarAlmacen.vue'
-
+import DireccionesEnt from './pages/direccionesEnt/direccionesEnt.vue'
+import CrearEditarDireccion from './pages/direccionesEnt/crearEditarDireccion.vue'
+import Devoluciones from './pages/devoluciones/devoluciones.vue'
+import CrearEditarDevolucion from './pages/devoluciones/CrearEditarDevolucion.vue'
+import PedidoClie from './pages/pedidoClie/pedidoClie.vue'
+import CrearEditarPedido from './pages/pedidoClie/crearEditarPedido.vue'
+console.log(CrearEditarPedido);
 const router = new Router({
     mode: 'history',
     routes: [
@@ -53,7 +59,19 @@ const router = new Router({
 
         { path: '/almacenes', name: 'almacenes', component: Almacenes },
         { path: '/almacenes/crear', name: 'crearAlmacen', component: CrearEditarAlmacen },
-        { path: '/almacenes/editar/:id', name: 'editarAlmacen', component: CrearEditarAlmacen }
+        { path: '/almacenes/editar/:id', name: 'editarAlmacen', component: CrearEditarAlmacen },
+
+        { path: '/direccionesEnt', name: 'direcciones', component: DireccionesEnt },
+        { path: '/direccionesEnt/crear', name: 'crearDireccion', component: CrearEditarDireccion },
+        { path: '/direccionesEnt/editar/:id', name: 'editarDireccion', component: CrearEditarDireccion },
+
+        { path: '/devoluciones', name: 'devoluciones', component: Devoluciones },
+        { path: '/devoluciones/crear', name: 'crearDevolucion', component: CrearEditarDevolucion },
+        { path: '/devoluciones/editar/:id', name: 'editarDevolucion', component: CrearEditarDevolucion},
+
+        { path: '/pedidoClie', name: 'pedidos', component: PedidoClie },
+        { path: '/pedidoClie/crear', name: 'crearPedido', component: CrearEditarPedido },
+        { path: '/pedidoClie/editar/:id', name: 'editarPedido', component: CrearEditarPedido}
     ]
 })
 
