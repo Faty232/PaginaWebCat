@@ -56,7 +56,7 @@
         },
         methods: {
             getClientes(){
-                axios.get('http://localhost:8888/api/cliente').then( resp => {
+                axios.get(`${process.env.RUTA_DB}/cliente`).then( resp => {
                     this.clientes = resp.data
                     console.log(resp)
                 } ).catch( err => {
@@ -66,7 +66,7 @@
             deleteCliente(id){
                 axios({
                     method: 'delete',
-                    url: `http://localhost:8888/api/cliente/${id}`
+                    url: `${process.env.RUTA_DB}/cliente/${id}`
                 }).then( resp => {
                     this.getClientes()
                     alert(resp.data.message)

@@ -77,7 +77,7 @@
             guardar(){
                 axios({
                     method: 'post',
-                    url: 'http://localhost:8888/api/empleado',
+                    url: `${process.env.RUTA_DB}/empleado`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)

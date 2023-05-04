@@ -79,7 +79,7 @@
         },
         methods: {
             getPedidos(){
-                axios.get('http://localhost:8888/api/pedidoClie').then( resp => {
+                axios.get(`${process.env.RUTA_DB}/pedidoClie`).then( resp => {
                     this.pedidos = resp.data
                     console.log(resp)
                 } ).catch( err => {
@@ -89,7 +89,7 @@
             deletePedido(id){
                 axios({
                     method: 'delete',
-                    url: `http://localhost:8888/api/pedidoClie/${id}`
+                    url: `${process.env.RUTA_DB}/pedidoClie/${id}`
                 }).then( resp => {
                     this.getPedidos()
                     alert(resp.data.message)

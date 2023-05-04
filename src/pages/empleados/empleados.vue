@@ -57,7 +57,7 @@
         },
         methods: {
             getEmpleados(){
-                axios.get('http://localhost:8888/api/empleado').then( resp => {
+                axios.get(`${process.env.RUTA_DB}/empleado`).then( resp => {
                     this.empleados = resp.data
                     console.log(resp)
                 } ).catch( err => {
@@ -67,7 +67,7 @@
             deleteEmpleado(id){
                 axios({
                     method: 'delete',
-                    url: `http://localhost:8888/api/empleado/${id}`
+                    url: `${process.env.RUTA_DB}/empleado/${id}`
                 }).then( resp => {
                     this.getEmpleados()
                     alert(resp.data.message)

@@ -52,7 +52,7 @@
         },
         methods: {
             getProveedores(){
-                axios.get('http://localhost:8888/api/proveedor').then( resp => {
+                axios.get(`${process.env.RUTA_DB}/proveedor`).then( resp => {
                     this.proveedores = resp.data
                     console.log(resp)
                 } ).catch( err => {
@@ -62,7 +62,7 @@
             deleteProveedor(id){
                 axios({
                     method: 'delete',
-                    url: `http://localhost:8888/api/proveedor/${id}`
+                    url: `${process.env.RUTA_DB}/proveedor/${id}`
                 }).then( resp => {
                     this.getProveedores()
                     alert(resp.data.message)

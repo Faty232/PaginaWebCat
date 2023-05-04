@@ -111,7 +111,7 @@
             guardar(){
                 axios({
                     method: 'post',
-                    url: 'http://localhost:8888/api/producto',
+                    url: `${process.env.RUTA_DB}/producto`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -123,7 +123,7 @@
             editar(){
                 axios({
                     method: 'put',
-                    url: `http://localhost:8888/api/producto/${this.$route.params.id}`,
+                    url: `${process.env.RUTA_DB}/producto/${this.$route.params.id}`,
                     data: this.form
                 }).then( resp => {
                      console.log(resp);
@@ -136,7 +136,7 @@
             getProducto(){
                 axios({
                     method: 'get',
-                    url: `http://localhost:8888/api/producto/${this.$route.params.id}`
+                    url: `${process.env.RUTA_DB}/producto/${this.$route.params.id}`
                 }).then( resp => {
                     this.form.nombre = resp.data.nombre
                     this.form.descripcion = resp.data.descripcion
@@ -156,7 +156,7 @@
             getTipoPrendas(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/tipoPrenda'
+                url: `${process.env.RUTA_DB}/tipoPrenda`
             }).then( resp => {
                 this.tipoPrendaT = resp.data
             } ).catch( err => {
@@ -166,7 +166,7 @@
          getCategorias(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/categoria'
+                url: `${process.env.RUTA_DB}/categoria`
             }).then( resp => {
                 this.categoriaT = resp.data
             } ).catch( err => {
@@ -176,7 +176,7 @@
          getProveedores(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/proveedor'
+                url: `${process.env.RUTA_DB}/proveedor`
             }).then( resp => {
                 this.proveedorT = resp.data
             } ).catch( err => {
@@ -186,7 +186,7 @@
          getMarcas(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/marca'
+                url: `${process.env.RUTA_DB}/marca`
             }).then( resp => {
                 this.marcaT = resp.data
             } ).catch( err => {

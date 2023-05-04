@@ -59,7 +59,7 @@
         },
         methods: {
             getDevoluciones(){
-                axios.get('http://localhost:8888/api/devolucion').then( resp => {
+                axios.get(`${process.env.RUTA_DB}/devolucion`).then( resp => {
                     this.devoluciones = resp.data
                     console.log(resp)
                 } ).catch( err => {
@@ -69,7 +69,7 @@
             deleteDevolucion(id){
                 axios({
                     method: 'delete',
-                    url: `http://localhost:8888/api/devolucion/${id}`
+                    url: `${process.env.RUTA_DB}/devolucion/${id}`
                 }).then( resp => {
                     this.getDevoluciones()
                     alert(resp.data.message)

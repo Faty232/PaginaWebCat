@@ -104,7 +104,7 @@ export default {
         getMarcas(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/marca'
+                url: `${process.env.RUTA_DB}/marca`
             }).then( resp => {
                 this.marcas = resp.data
             } ).catch( err => {
@@ -114,7 +114,7 @@ export default {
         guardar(){
             axios({
                 method: 'post',
-                url: 'http://localhost:8888/api/marca',
+                url: `${process.env.RUTA_DB}/marca`,
                 data: this.form
             }).then( resp => {
                 this.getMarcas()
@@ -128,7 +128,7 @@ export default {
         deleteMarca(id){
             axios({
                 method: 'delete',
-                url: `http://localhost:8888/api/marca/${id}`
+                url: `${process.env.RUTA_DB}/marca/${id}`
             }).then( resp => {
                 this.getMarcas()
                 alert(resp.data.message)
@@ -139,7 +139,7 @@ export default {
         editMarca(id){
             axios({
                 method: 'put',
-                url: `http://localhost:8888/api/marca/${id}`,
+                url: `${process.env.RUTA_DB}/marca/${id}`,
                 data: this.form
             }).then( resp => {
                 this.getMarcas()

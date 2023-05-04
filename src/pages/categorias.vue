@@ -120,7 +120,7 @@ export default {
         guardar(){
             axios({
                 method: 'post',
-                url: 'http://localhost:8888/api/categoria',
+                url: `${process.env.RUTA_DB}/categoria`,
                 data: this.form
             }).then( resp => {
                 this.getCategorias()
@@ -135,7 +135,7 @@ export default {
         deleteCategoria(id){
             axios({
                 method: 'delete',
-                url: `http://localhost:8888/api/categoria/${id}`
+                url: `${process.env.RUTA_DB}/categoria/${id}`
             }).then( resp => {
                 this.getCategorias()
                 alert(resp.data.message)
@@ -146,7 +146,7 @@ export default {
         editCategoria(id){
             axios({
                 method: 'put',
-                url: `http://localhost:8888/api/categoria/${id}`,
+                url: `${process.env.RUTA_DB}/categoria/${id}`,
                 data: this.form
             }).then( resp => {
                 this.getCategorias()

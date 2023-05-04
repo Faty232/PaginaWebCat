@@ -73,7 +73,7 @@
             guardar(){
                 axios({
                     method: 'post',
-                    url: 'http://localhost:8888/api/devolucion',
+                    url: `${process.env.RUTA_DB}/devolucion`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -85,7 +85,7 @@
             editar(){
                 axios({
                     method: 'put',
-                    url: `http://localhost:8888/api/devolucion/${this.$route.params.id}`,
+                    url: `${process.env.RUTA_DB}/devolucion/${this.$route.params.id}`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -97,7 +97,7 @@
             getDevolucion(){
                 axios({
                     method: 'get',
-                    url: `http://localhost:8888/api/devolucion/${this.$route.params.id}`
+                    url: `${process.env.RUTA_DB}/devolucion/${this.$route.params.id}`
                 }).then( resp => {
                     this.form.estatus = resp.data.estatus
                     this.form.motivo = resp.data.motivo
@@ -112,7 +112,7 @@
             getPedidos(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/pedidoClie'
+                url: `${process.env.RUTA_DB}/pedidoClie`
             }).then( resp => {
                 this.pedidoClieT = resp.data
             } ).catch( err => {

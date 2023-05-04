@@ -115,7 +115,7 @@ export default {
         getTipoPrendas(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/tipoPrenda'
+                url: `${process.env.RUTA_DB}/tipoPrenda`
             }).then( resp => {
                 this.tipoPrendas = resp.data
             } ).catch( err => {
@@ -125,7 +125,7 @@ export default {
         guardar(){
             axios({
                 method: 'post',
-                url: 'http://localhost:8888/api/tipoPrenda',
+                url: `${process.env.RUTA_DB}/tipoPrenda`,
                 data: this.form
             }).then( resp => {
                 this.getTipoPrendas()
@@ -141,7 +141,7 @@ export default {
         deleteTipoPrenda(id){
             axios({
                 method: 'delete',
-                url: `http://localhost:8888/api/tipoPrenda/${id}`
+                url: `${process.env.RUTA_DB}/tipoPrenda/${id}`
             }).then( resp => {
                 this.getTipoPrendas()
                 alert(resp.data.message)
@@ -152,7 +152,7 @@ export default {
         editTipoPrenda(id){
             axios({
                 method: 'put',
-                url: `http://localhost:8888/api/tipoPrenda/${id}`,
+                url: `${process.env.RUTA_DB}/tipoPrenda/${id}`,
                 data: this.form
             }).then( resp => {
                 this.getTipoPrendas()

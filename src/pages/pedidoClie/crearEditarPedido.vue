@@ -100,7 +100,7 @@
             guardar(){
                 axios({
                     method: 'post',
-                    url: 'http://localhost:8888/api/pedidoClie',
+                    url: `${process.env.RUTA_DB}/pedidoClie`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -112,7 +112,7 @@
             editar(){
                 axios({
                     method: 'put',
-                    url: `http://localhost:8888/api/pedidoClie/${this.$route.params.id}`,
+                    url: `${process.env.RUTA_DB}/pedidoClie/${this.$route.params.id}`,
                     data: this.form
                 }).then( resp => {
                      console.log(resp);
@@ -125,7 +125,7 @@
             getPedidos(){
                 axios({
                     method: 'get',
-                    url: `http://localhost:8888/api/pedidoClie/${this.$route.params.id}`
+                    url: `${process.env.RUTA_DB}/pedidoClie/${this.$route.params.id}`
                 }).then( resp => {
                     this.form.fechEnt = resp.data.fechEnt
                     this.form.estatus = resp.data.estatus
@@ -144,7 +144,7 @@
             getPedido(){
                 axios({
                     method: 'get',
-                    url: `http://localhost:8888/api/pedidoClie/${this.$route.params.id}`
+                    url: `${process.env.RUTA_DB}/pedidoClie/${this.$route.params.id}`
                 }).then( resp => {
                     this.form.fechEnt = resp.data.fechEnt
                     this.form.estatus = resp.data.estatus
@@ -162,7 +162,7 @@
             getEmpleados(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/empleado'
+                url: `${process.env.RUTA_DB}/empleado`
             }).then( resp => {
                 this.empleadoT = resp.data
             } ).catch( err => {
@@ -172,7 +172,7 @@
          getDistribuidores(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/distribuidor'
+                url: `${process.env.RUTA_DB}/distribuidor`
             }).then( resp => {
                 this.distribuidorT = resp.data
             } ).catch( err => {
@@ -182,7 +182,7 @@
          getClientes(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/cliente'
+                url: `${process.env.RUTA_DB}/cliente`
             }).then( resp => {
                 this.clienteT = resp.data
             } ).catch( err => {
@@ -192,7 +192,7 @@
          getDireEnt(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/direEnt'
+                url: `${process.env.RUTA_DB}/direEnt`
             }).then( resp => {
                 this.direEntT = resp.data
             } ).catch( err => {
@@ -202,7 +202,7 @@
          getProductos(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/producto'
+                url: `${process.env.RUTA_DB}/producto`
             }).then( resp => {
                 this.productoT = resp.data
             } ).catch( err => {

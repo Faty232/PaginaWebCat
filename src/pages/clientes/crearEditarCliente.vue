@@ -88,7 +88,7 @@
             guardar(){
                 axios({
                     method: 'post',
-                    url: 'http://localhost:8888/api/cliente',
+                    url: `${process.env.RUTA_DB}/cliente`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -100,7 +100,7 @@
             editar(){
                 axios({
                     method: 'put',
-                    url: `http://localhost:8888/api/cliente/${this.$route.params.id}`,
+                    url: `${process.env.RUTA_DB}/cliente/${this.$route.params.id}`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -112,7 +112,7 @@
             getCliente(){
                 axios({
                     method: 'get',
-                    url: `http://localhost:8888/api/cliente/${this.$route.params.id}`
+                    url: `${process.env.RUTA_DB}/cliente/${this.$route.params.id}`
                 }).then( resp => {
                     this.form.nombre = resp.data.nombre
                     this.form.tipo = resp.data.tipo

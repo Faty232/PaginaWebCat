@@ -73,7 +73,7 @@
             getEmpleado(){
                 axios({
                     method: 'get',
-                    url: `http://localhost:8888/api/empleado/${this.$route.params.id}`
+                    url: `${process.env.RUTA_DB}/empleado/${this.$route.params.id}`
                 }).then( resp => {
                     this.form.nombre = resp.data.nombre
                     this.form.edad = resp.data.edad
@@ -90,7 +90,7 @@
             editar(){
                 axios({
                     method: 'patch',
-                    url: `http://localhost:8888/api/empleado/${this.$route.params.id}`,
+                    url: `${process.env.RUTA_DB}/empleado/${this.$route.params.id}`,
                     data: this.form
                 }).then( resp => {
                     console.log(resp)

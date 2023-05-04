@@ -68,7 +68,7 @@
             guardar(){
                 axios({
                     method: 'post',
-                    url: 'http://localhost:8888/api/direEnt',
+                    url: `${process.env.RUTA_DB}/direEnt`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -80,7 +80,7 @@
             editar(){
                 axios({
                     method: 'put',
-                    url: `http://localhost:8888/api/direEnt/${this.$route.params.id}`,
+                    url: `${process.env.RUTA_DB}/direEnt/${this.$route.params.id}`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -92,7 +92,7 @@
             getDireEnt(){
                 axios({
                     method: 'get',
-                    url: `http://localhost:8888/api/direEnt/${this.$route.params.id}`
+                    url: `${process.env.RUTA_DB}/direEnt/${this.$route.params.id}`
                 }).then( resp => {
                     this.form.direccion = resp.data.direccion
                     this.form.cp = resp.data.cp
@@ -106,7 +106,7 @@
             getClientes(){
             axios({
                 method: 'get',
-                url: 'http://localhost:8888/api/cliente'
+                url: `${process.env.RUTA_DB}/cliente`
             }).then( resp => {
                 this.clienteT = resp.data
             } ).catch( err => {

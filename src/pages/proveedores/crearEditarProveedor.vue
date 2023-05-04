@@ -72,7 +72,7 @@
             guardar(){
                 axios({
                     method: 'post',
-                    url: 'http://localhost:8888/api/proveedor',
+                    url: `${process.env.RUTA_DB}/proveedor`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -84,7 +84,7 @@
             editar(){
                 axios({
                     method: 'put',
-                    url: `http://localhost:8888/api/proveedor/${this.$route.params.id}`,
+                    url: `${process.env.RUTA_DB}/proveedor/${this.$route.params.id}`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -96,7 +96,7 @@
             getProveedor(){
                 axios({
                     method: 'get',
-                    url: `http://localhost:8888/api/proveedor/${this.$route.params.id}`
+                    url: `${process.env.RUTA_DB}/proveedor/${this.$route.params.id}`
                 }).then( resp => {
                     this.form.nombre = resp.data.nombre
                     this.form.telefono = resp.data.telefono

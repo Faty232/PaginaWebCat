@@ -55,7 +55,7 @@
         },
         methods: {
             getDistribuidores(){
-                axios.get('http://localhost:8888/api/distribuidor').then( resp => {
+                axios.get(`${process.env.RUTA_DB}/distribuidor`).then( resp => {
                     this.distribuidores = resp.data
                     console.log(resp)
                 } ).catch( err => {
@@ -65,7 +65,7 @@
             deleteDistribuidor(id){
                 axios({
                     method: 'delete',
-                    url: `http://localhost:8888/api/distribuidor/${id}`
+                    url: `${process.env.RUTA_DB}/distribuidor/${id}`
                 }).then( resp => {
                     this.getDistribuidores()
                     alert(resp.data.message)
