@@ -52,7 +52,7 @@
         },
         methods: {
             getProveedores(){
-                axios.get(`${process.env.RUTA_DB}/proveedor`).then( resp => {
+                axios.get(`${import.meta.env.VITE_RUTA_DB}/proveedor`).then( resp => {
                     this.proveedores = resp.data
                     console.log(resp)
                 } ).catch( err => {
@@ -62,7 +62,7 @@
             deleteProveedor(id){
                 axios({
                     method: 'delete',
-                    url: `${process.env.RUTA_DB}/proveedor/${id}`
+                    url: `${import.meta.env.VITE_RUTA_DB}/proveedor/${id}`
                 }).then( resp => {
                     this.getProveedores()
                     alert(resp.data.message)

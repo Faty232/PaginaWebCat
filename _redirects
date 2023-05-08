@@ -1,0 +1,42 @@
+/                         /index.html    200!
+/empleados                /index.html    200!
+/empleados/crear          /index.html    200!
+/empleados/editar/*     /index.html    200!
+
+/distribuidores                /index.html    200!
+/distribuidores/crear          /index.html    200!
+/distribuidores/editar/*     /index.html    200!
+
+/clientes                /index.html    200!
+/clientes/crear          /index.html    200!
+/clientes/editar/*     /index.html    200!
+
+/marcas             /index.html    200!
+
+/tipo-prendas       /index.html    200!
+
+/categorias         /index.html    200!
+
+/proveedores                /index.html    200!
+/proveedores/crear          /index.html    200!
+/proveedores/editar/*     /index.html    200!
+
+/productos                /index.html    200!
+/productos/crear          /index.html    200!
+/productos/editar/*     /index.html    200!
+
+/almacenes                /index.html    200!
+/almacenes/crear          /index.html    200!
+/almacenes/editar/*     /index.html    200!
+
+/direccionesEnt                /index.html    200!
+/direccionesEnt/crear          /index.html    200!
+/direccionesEnt/editar/*     /index.html    200!
+
+/devoluciones                /index.html    200!
+/devoluciones/crear          /index.html    200!
+/devoluciones/editar/*     /index.html    200!
+
+/pedidoClie                /index.html    200!
+/pedidoClie/crear          /index.html    200!
+/pedidoClie/editar/*     /index.html    200!

@@ -37,6 +37,9 @@
                     <v-col>
                         <v-text-field label="Telefono" type="number" v-model="form.telefono" required></v-text-field>
                     </v-col>
+                    <v-col>
+                        <v-text-field label="Contraseña" type="password" v-model="form.contraseña" required></v-text-field>
+                    </v-col>
                 </v-row>
                 
                 <v-row justify="center">
@@ -63,6 +66,7 @@
                     estado: '',
                     email: '',
                     telefono: '',
+                    contraseña: ''
                 }
             }
         }, 
@@ -88,7 +92,7 @@
             guardar(){
                 axios({
                     method: 'post',
-                    url: `${process.env.RUTA_DB}/cliente`,
+                    url: `${import.meta.env.VITE_RUTA_DB}/cliente`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -100,7 +104,7 @@
             editar(){
                 axios({
                     method: 'put',
-                    url: `${process.env.RUTA_DB}/cliente/${this.$route.params.id}`,
+                    url: `${import.meta.env.VITE_RUTA_DB}/cliente/${this.$route.params.id}`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -112,7 +116,7 @@
             getCliente(){
                 axios({
                     method: 'get',
-                    url: `${process.env.RUTA_DB}/cliente/${this.$route.params.id}`
+                    url: `${import.meta.env.VITE_RUTA_DB}/cliente/${this.$route.params.id}`
                 }).then( resp => {
                     this.form.nombre = resp.data.nombre
                     this.form.tipo = resp.data.tipo

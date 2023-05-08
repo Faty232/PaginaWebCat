@@ -77,7 +77,7 @@
             guardar(){
                 axios({
                     method: 'post',
-                    url: `${process.env.RUTA_DB}/empleado`,
+                    url: `${import.meta.env.VITE_RUTA_DB}/empleado`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)

@@ -62,7 +62,7 @@
             guardar(){
                 axios({
                     method: 'post',
-                    url: `${process.env.RUTA_DB}/almacen`,
+                    url: `${import.meta.env.VITE_RUTA_DB}/almacen`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -74,7 +74,7 @@
             editar(){
                 axios({
                     method: 'put',
-                    url: `${process.env.RUTA_DB}/almacen/${this.$route.params.id}`,
+                    url: `${import.meta.env.VITE_RUTA_DB}/almacen/${this.$route.params.id}`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -86,7 +86,7 @@
             getAlmacen(){
                 axios({
                     method: 'get',
-                    url: `${process.env.RUTA_DB}/almacen/${this.$route.params.id}`
+                    url: `${import.meta.env.VITE_RUTA_DB}/almacen/${this.$route.params.id}`
                 }).then( resp => {
                     this.form.existencias = resp.data.existencias
                     this.form.ProductoId = resp.data.ProductoId
@@ -98,7 +98,7 @@
             getProductos(){
             axios({
                 method: 'get',
-                url: `${process.env.RUTA_DB}/producto`
+                url: `${import.meta.env.VITE_RUTA_DB}/producto`
             }).then( resp => {
                 this.productoT = resp.data
             } ).catch( err => {

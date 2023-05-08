@@ -110,7 +110,7 @@ export default {
         getCategorias(){
             axios({
                 method: 'get',
-                url: `${process.env.RUTA_DB}/categoria`
+                url: `${import.meta.env.VITE_RUTA_DB}/categoria`
             }).then( resp => {
                 this.categorias = resp.data
             } ).catch( err => {
@@ -120,7 +120,7 @@ export default {
         guardar(){
             axios({
                 method: 'post',
-                url: `${process.env.RUTA_DB}/categoria`,
+                url: `${import.meta.env.VITE_RUTA_DB}/categoria`,
                 data: this.form
             }).then( resp => {
                 this.getCategorias()
@@ -135,7 +135,7 @@ export default {
         deleteCategoria(id){
             axios({
                 method: 'delete',
-                url: `${process.env.RUTA_DB}/categoria/${id}`
+                url: `${import.meta.env.VITE_RUTA_DB}/categoria/${id}`
             }).then( resp => {
                 this.getCategorias()
                 alert(resp.data.message)
@@ -146,7 +146,7 @@ export default {
         editCategoria(id){
             axios({
                 method: 'put',
-                url: `${process.env.RUTA_DB}/categoria/${id}`,
+                url: `${import.meta.env.VITE_RUTA_DB}/categoria/${id}`,
                 data: this.form
             }).then( resp => {
                 this.getCategorias()

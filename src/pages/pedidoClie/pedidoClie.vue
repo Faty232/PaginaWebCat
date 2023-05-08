@@ -79,7 +79,7 @@
         },
         methods: {
             getPedidos(){
-                axios.get(`${process.env.RUTA_DB}/pedidoClie`).then( resp => {
+                axios.get(`${import.meta.env.VITE_RUTA_DB}/pedidoClie`).then( resp => {
                     this.pedidos = resp.data
                     console.log(resp)
                 } ).catch( err => {
@@ -89,7 +89,7 @@
             deletePedido(id){
                 axios({
                     method: 'delete',
-                    url: `${process.env.RUTA_DB}/pedidoClie/${id}`
+                    url: `${import.meta.env.VITE_RUTA_DB}/pedidoClie/${id}`
                 }).then( resp => {
                     this.getPedidos()
                     alert(resp.data.message)

@@ -54,7 +54,7 @@
         },
         methods: {
             getDireccionesEnt(){
-                axios.get(`${process.env.RUTA_DB}/direEnt`).then( resp => {
+                axios.get(`${import.meta.env.VITE_RUTA_DB}/direEnt`).then( resp => {
                     this.direccionesEnt = resp.data
                     console.log(resp)
                 } ).catch( err => {
@@ -64,7 +64,7 @@
             deleteDireccion(id){
                 axios({
                     method: 'delete',
-                    url: `${process.env.RUTA_DB}/direEnt/${id}`
+                    url: `${import.meta.env.VITE_RUTA_DB}/direEnt/${id}`
                 }).then( resp => {
                     this.getDireccionesEnt()
                     alert(resp.data.message)

@@ -11,7 +11,10 @@
                     {{item.PedidoClie ? item.PedidoClie.id:""}}
             </template> 
             <template v-slot:item.precio="{item}">
-                    {{item.PedidoClie ? item.PedidoClie.precio:""}}
+                    {{item.PedidoClie ? item.PedidoClie.Producto.precio:""}}
+            </template>
+            <template v-slot:item.total="{item}">
+                    {{item.PedidoClie ? item.PedidoClie.Producto.precio * item.cantidad:""}}
             </template>
             <template  v-slot:item.editar="{ item }">
                 <v-btn class="mx-2" fab dark x-small color="primary"  @click="$router.push({ name: 'editarDevolucion', params: { id: item.id }  })">
@@ -59,7 +62,7 @@
         },
         methods: {
             getDevoluciones(){
-                axios.get(`${process.env.RUTA_DB}/devolucion`).then( resp => {
+                axios.get(`${import.meta.env.VITE_RUTA_DB}/devolucion`).then( resp => {
                     this.devoluciones = resp.data
                     console.log(resp)
                 } ).catch( err => {
@@ -69,7 +72,7 @@
             deleteDevolucion(id){
                 axios({
                     method: 'delete',
-                    url: `${process.env.RUTA_DB}/devolucion/${id}`
+                    url: `${import.meta.env.VITE_RUTA_DB}/devolucion/${id}`
                 }).then( resp => {
                     this.getDevoluciones()
                     alert(resp.data.message)

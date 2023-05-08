@@ -56,7 +56,7 @@
         },
         methods: {
             getAlmacenes(){
-                axios.get(`${process.env.RUTA_DB}/almacen`).then( resp => {
+                axios.get(`${import.meta.env.VITE_RUTA_DB}/almacen`).then( resp => {
                     this.almacenes = resp.data
                     console.log(resp)
                 } ).catch( err => {
@@ -66,7 +66,7 @@
             deleteAlmacen(id){
                 axios({
                     method: 'delete',
-                    url: `${process.env.RUTA_DB}/almacen/${id}`
+                    url: `${import.meta.env.VITE_RUTA_DB}/almacen/${id}`
                 }).then( resp => {
                     this.getAlmacenes()
                     alert(resp.data.message)

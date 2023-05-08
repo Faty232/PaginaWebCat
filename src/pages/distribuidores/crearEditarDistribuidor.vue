@@ -84,7 +84,7 @@
             guardar(){
                 axios({
                     method: 'post',
-                    url: `${process.env.RUTA_DB}/distribuidor`,
+                    url: `${import.meta.env.VITE_RUTA_DB}/distribuidor`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -96,7 +96,7 @@
             editar(){
                 axios({
                     method: 'put',
-                    url: `${process.env.RUTA_DB}/distribuidor/${this.$route.params.id}`,
+                    url: `${import.meta.env.VITE_RUTA_DB}/distribuidor/${this.$route.params.id}`,
                     data: this.form
                 }).then( resp => {
                     alert(resp.data.message)
@@ -108,7 +108,7 @@
             getDistribuidor(){
                 axios({
                     method: 'get',
-                    url: `${process.env.RUTA_DB}/distribuidor/${this.$route.params.id}`
+                    url: `${import.meta.env.VITE_RUTA_DB}/distribuidor/${this.$route.params.id}`
                 }).then( resp => {
                     this.form.nombre = resp.data.nombre
                     this.form.telefono = resp.data.telefono

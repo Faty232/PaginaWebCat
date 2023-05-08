@@ -21,7 +21,7 @@
                   >
                     <v-list-item class="px-2">
                       <v-list-item-avatar>
-                        <v-img src="https://randomuser.me/api/portraits/women/75.jpg"></v-img>
+                        <v-img :src="imagenGato"></v-img>
                       </v-list-item-avatar>
                     </v-list-item>
 
@@ -40,9 +40,6 @@
                   </v-navigation-drawer>
 
                   <v-list class="grow">
-                    <v-list-item>
-                      <v-list-item-title v-text="'Inicio'"></v-list-item-title>
-                    </v-list-item>
                     <v-list-item @click="$router.push({ name: 'empleados' })">
                       <v-list-item-title v-text="'Empleados'"></v-list-item-title>
                     </v-list-item>
@@ -93,3 +90,13 @@
     </v-app>
   </div>
 </template>
+<script>
+import ImagenGato from "./assets/Fondo1.png"
+export default {
+  data(){
+    return {
+      imagenGato: ImagenGato
+    }
+  }
+}
+</script>

@@ -69,7 +69,7 @@
         },
         methods: {
             getProductos(){
-                axios.get(`${process.env.RUTA_DB}/producto`).then( resp => {
+                axios.get(`${import.meta.env.VITE_RUTA_DB}/producto`).then( resp => {
                     this.productos = resp.data
                     console.log(resp)
                 } ).catch( err => {
@@ -79,7 +79,7 @@
             deleteProducto(id){
                 axios({
                     method: 'delete',
-                    url: `${process.env.RUTA_DB}/producto/${id}`
+                    url: `${import.meta.env.VITE_RUTA_DB}/producto/${id}`
                 }).then( resp => {
                     this.getProductos()
                     alert(resp.data.message)
